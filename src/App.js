@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 
 class App extends Component {
   render() {
+    const style = {
+      color: "red"
+    }
     return (
-      <div>
-        <h1>Hello, World</h1>
+      <div style={style}>
+        Hello, World
       </div>
     );
   }

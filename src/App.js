@@ -6,9 +6,14 @@ class App extends Component {
       color: "red"
     }
     return (
-      <div style={style}>
-        Hello, World
-      </div>
+      <React.Fragment>
+        <div style={style}>
+          Hello, World
+        </div>
+       <div style={style}>
+         Hello, World
+       </div>
+      </React.Fragment>
     );
   }
 }

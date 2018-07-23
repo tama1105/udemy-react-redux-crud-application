@@ -1,49 +1,45 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// class App extends Component {
-//   render() {
-//     const style = {
-//       color: "red"
-//     }
-//     return (
-//       <React.Fragment>
-//         <div style={style}>
-//           Hello, World
-//         </div>
-//        <div style={style}>
-//          Hello, World
-//        </div>
-//       </React.Fragment>
-//     );
-//   }
-// }
-
-const App = () => {
-  const profiles = [
-    { name: "Taro", age: 10 },
-    { name: "Tom", age: 20 },
-    { name: "HogeHoge"}
-  ]
-  return(
-    <div>
-      {
-        profiles.map((p, i) => {
-          return <User name={p.name} age={p.age} key={i}></User>
-        })
-      }
-    </div>
-  )
+class App extends Component {
+  render() {
+    const style = {
+      color: "red"
+    }
+    return (
+      <Counter />
+    );
+  }
 }
 
-const User = (props) => {
-  return <div>Name: {props.name}, Age: {props.age}</div>
+class Counter extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      count: 0
+    }
+  }
+  countUpHandler = () => {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+  countDownHandler = () => {
+    this.setState({
+      count: this.state.count - 1
+    })
+  }
+
+  render(){
+    return(
+      <React.Fragment>
+        <div>count: {this.state.count}</div>
+        <button onClick={this.countUpHandler}>UP</button>
+        <button onClick={this.countDownHandler}>DOWN</button>
+      </React.Fragment>
+    )
+  }
 }
 
-User.propTypes = {//型チェックできる
-  name: PropTypes.string,
-  // age: PropTypes.number//ageを記述してないことに対するエラーは表示されない
-  age: PropTypes.number.isRequired//ageは必須になる
-}
 
 export default App;
